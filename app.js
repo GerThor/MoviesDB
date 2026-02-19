@@ -32,11 +32,11 @@ function displaySearchKeyword (searchQuery) {
 
 function filterMovies(event) {
 
-    const sortMovies = document.getElementById("dropdown__sort--bar");
+    const sortMovies = document.getElementById("dropdown__sort--bar").value;
     const movies = Array.from(document.querySelectorAll(".movie"))
-    for(let i = 0; i < movies.length; i++) {
-        console.log("unsorted movies", movies[i].textContent);
-    }
+    // for(let i = 0; i < movies.length; i++) {
+    //     console.log("unsorted movies", movies[i].textContent);
+    // }
 
 
     movies.sort((a, b) => {
@@ -54,9 +54,9 @@ function filterMovies(event) {
     const parent = movies[0].parentNode;
     parent.innerHTML = "";
     movies.forEach(movie => parent.appendChild(movie));
-    for(let i = 0; i < movies.length; i++) {
-        console.log("sorted movies", movies[i].textContent);
-    }
+    // for(let i = 0; i < movies.length; i++) {
+    //     console.log("sorted movies", movies[i].textContent);
+    // }
 }
 
 /* HAMBURGER MENU */
