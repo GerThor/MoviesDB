@@ -9,43 +9,79 @@
     <script src="https://kit.fontawesome.com/a7900077ab.js" crossorigin="anonymous"></script>
 </head>
 <body>
-    <section id="movies__search-page">
-        <nav>
-            <div class="container nav__container">
-                <div class="row">
-                    <div class="nav__bar">
-                        <h1 class="nav__title">Movies</h1>
-                        <div class="nav__header">
-                            <ul class="nav__links">
-                                <li class="nav__link">Home</li>
-                                <li class="nav__link">Find your movie</li>
-                                <li class="nav__link nav__link--button btn">Contact</li>
-                            </ul>
+    <div class="body-content">
+        <section id="movies__search-page">
+            <nav>
+                <div class="container nav__container">
+                    <div class="row">
+                        <div class="nav__bar">
+                            <h1 class="nav__title">Movies</h1>
+                            <div class="nav__header">
+                                <ul class="nav__links">
+                                    <li class="nav__link">Home</li>
+                                    <li class="nav__link">Find Your Movie</li>
+                                    <li class="nav__link nav__link--button btn">Contact</li>
+                                </ul>
+                            </div>
+                            <button class="hamburger__menu" onclick="openMenu()">
+                                <i class="fas fa-bars"></i>
+                            </button>
+                            <div class="menu__backdrop ">
+                                <button class="hamburger__menu hamburger__menu--close" onclick="closeMenu()">
+                                    <i class="fas fa-times"></i>
+                                </button>
+                                <ul class="menu__links">
+                                    <li class="menu__list">
+                                        <a href="#" class="menu__link">Home</a>
+                                    </li>
+                                    <li class="menu__list">
+                                        <a href="#" class="menu__link">Find Your Movie</a>
+                                    </li>
+                                    <li class="menu__list">
+                                        <a href="#" class="menu__link">Contact</a>
+                                    </li>
+                                </ul>
+                            </div>
                         </div>
+                        <div class="search__bar--header"></div>
+                        <!-- <form id="search__bar--form" action="/search" method="GET" onsubmit="fetchMovieAPI()"> -->
+                        <form id="search__bar--form" onsubmit="checkFormSubmission(event)">
+                            <input id="search__bar--input" type="text" name="query" placeholder="Search by Movie Name" required>
+                            <button class="search__button btn" type="submit">Search</button>
+                        </form>
                     </div>
-                    <div class="search__bar--header"></div>
-                    <!-- <form id="search__bar--form" action="/search" method="GET" onsubmit="fetchMovieAPI()"> -->
-                    <form id="search__bar--form" onsubmit="checkFormSubmission(event)">
-                        <input id="search__bar--input" type="text" name="query" placeholder="Search by Movie Name" required>
-                        <button class="search__button btn" type="submit">Search</button>
-                    </form>
                 </div>
-            </div>
-        </nav>
-    </section>
+            </nav>
+        </section>
 
-    <section id="movies__display">
-        <div class="container">
-            <div class="row movies__row">
-                <div class="movies__search-header">
-                    <h2>Search Results:</h2>
-                </div>
-                <div class="movie__container--list loading__movie-list">
-                    <i class="fas fa-spinner movie__spinner--loading"></i>
+        <section id="movies__display">
+            <div class="container">
+                <div class="row movies__row">
+                    <div class="movies__header">
+                        <div class="movies__search-header">
+                            <h2>Search Results:</h2>
+                        </div>
+                        <select id="dropdown__sort--bar" onchange="filterMovies(event)">
+                            <option value disabled selected>Sort Alphabetically</option>
+                            <option value="A_to_Z">Alphabetically, A to Z</option>
+                            <option value="Z_to_A">Alphabetically, Z to A</option>
+                        </select>
+                    </div>
+                    <div class="movie__container--list loading__movie-list">
+                        <i class="fas fa-spinner movie__spinner--loading"></i>
+                    </div>
                 </div>
             </div>
-        </div>
-    </section>
-    
+        </section>
+    </div>
 </body>
+
+<footer>
+    <div class="container">
+        <h2>&copy Ger Thor</h2>
+    </div>
+</footer>
+
+
+
 </html>
